@@ -1,0 +1,149 @@
+*,
+*::after,
+*::before {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+  font-family: "Inter";
+}
+
+:root {
+  --Verydarkblue-mainbackground: hsl(233, 47%, 7%);
+  --Darkdesaturatedblue-cardbackground: hsl(244, 38%, 16%);
+  --Softviolet: hsl(277, 64%, 61%);
+
+  --White: hsl(0, 0%, 100%);
+  --Slightlyparagraph: hsla(0, 0%, 100%, 0.75);
+  --Slightlyheadings: hsla(0, 0%, 100%, 0.6);
+}
+
+body {
+  display: flex;
+  min-height: 100vh;
+  background: var(--Verydarkblue-mainbackground);
+  justify-content: center;
+  align-items: center;
+}
+
+main {
+  display: grid;
+  grid-template-columns: repeat(2, 1fr);
+  grid-template-rows: 1fr;
+  width: 80%;
+  background: var(--Darkdesaturatedblue-cardbackground);
+  border-radius: 8px;
+  overflow: hidden;
+}
+
+main .main-content {
+  padding: 45px;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+}
+
+.main-content .head h2 {
+  color: var(--White);
+  font-size: 2rem;
+  font-weight: 700;
+}
+
+.head p {
+  font-size: 15px;
+  color: var(--Slightlyparagraph);
+  margin: 20px 0;
+}
+
+.insights {
+  color: var(--Softviolet);
+}
+.image img {
+  width: 100%;
+  height: 100%;
+}
+
+.image {
+  position: relative;
+}
+
+.image::before {
+  content: "";
+  position: absolute;
+  width: 100%;
+  height: 100%;
+  background-color: hsla(277, 91%, 21%, 0.438);
+}
+
+.bottom {
+  display: flex;
+  margin-top: 30px;
+  gap: 55px;
+}
+.flexado {
+  display: flex;
+  flex-direction: column;
+  gap: 8px;
+}
+
+.big {
+  font-size: 1.5rem;
+  color: var(--White);
+  font-weight: 700;
+}
+
+.small {
+  font-weight: 400;
+  font-size: 12px;
+  text-transform: uppercase;
+  color: var(--Slightlyheadings);
+}
+
+.mobile {
+  display: none;
+}
+
+@media screen and (max-width: 492px) {
+  main {
+    grid-template-columns: 1fr;
+    grid-template-rows: 245px 2fr;
+    width: 90%;
+    margin: 50px 0;
+  }
+
+  .main-content {
+    justify-content: flex-start;
+  }
+
+  .image {
+    order: -1;
+  }
+  .image .desktop {
+    display: none;
+  }
+  .mobile {
+    display: block;
+  }
+
+  main .main-content {
+    padding: 20px;
+    text-align: center;
+  }
+
+  .main-content .head h2 {
+    font-size: 1.4rem;
+  }
+
+  .head p {
+    font-size: 14px;
+    line-height: 1.5;
+  }
+
+  .bottom {
+    margin-top: 15px;
+    flex-direction: column;
+    gap: 30px;
+  }
+  .big {
+    font-size: 1.3rem;
+  }
+}
